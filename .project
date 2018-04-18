@@ -20,4 +20,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>native</name>
+			<type>2</type>
+			<location>C:/Users/Geothentic-DEV/Documents/ws-java/test-relayboard/JavaFTD2XX/native</location>
+		</link>
+	</linkedResources>
 </projectDescription>

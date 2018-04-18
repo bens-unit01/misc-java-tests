@@ -6,6 +6,7 @@ import com.pratiques.lecture.TestConsole;
 import com.pratiques.observer1.Observer1Test;
 import com.pratiques.observer2.Observer2Test;
 import com.pratiques.factory.TestFactory;
+import com.pratiques.ftdi.TestFtdi;
 import com.pratiques.regex.TestRegex01;
 
 /**
@@ -23,6 +24,8 @@ public class App
 //        TestScanner.run(); 
 //        TestConsole.run(); //ne marche pas sous-windows,  System.console retourne null  
 //          TestFactory.run(); 
-        TestRegex01.run(); 
+//        TestRegex01.run(); 
+        TestFtdi.run(); 
+        System.exit(0);
     }
 }
