@@ -77,8 +77,8 @@ interface FTD2XX extends Library {
                 }
             }
             */ 
-            in = Loader.class.getResourceAsStream(
-                            "/natives/x86_64/ftd2xx.dll");
+    //        in = Loader.class.getResourceAsStream("/natives/x86_64/ftd2xx.dll");
+            in = Loader.class.getResourceAsStream("/natives/i386/ftd2xx.dll");
 
 
             if (in != null) {

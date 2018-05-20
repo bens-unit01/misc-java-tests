@@ -26,8 +26,8 @@ public class App
 //        TestConsole.run(); //ne marche pas sous-windows,  System.console retourne null  
 //          TestFactory.run(); 
 //        TestRegex01.run(); 
-//        TestFtdi.run();  // ne marche pas encore 
-        TestFiles01.run();  // ne marche pas encore 
+        TestFtdi.run();  // ne marche pas encore 
+//        TestFiles01.run();  // ne marche pas encore 
         System.exit(0);
     }
 }
