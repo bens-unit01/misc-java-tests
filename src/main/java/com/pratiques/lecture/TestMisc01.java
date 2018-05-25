@@ -18,7 +18,7 @@ public class TestMisc01 {
 		testBufferedReader();
 	}
 
-	private static void testInputInt() {
+	private static void solution01() {
 		System.out.println("-- test misc");
 		Scanner in = new Scanner(System.in);
 		try {
@@ -31,29 +31,39 @@ public class TestMisc01 {
 
 	}
 
-	private static void testBufferedReader() {
+	private static void solution02() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Lecture avec BufferedReader");
-		new Thread(new Runnable() {
+		try {
+			System.out.println("Enter ignored stuff");
+			delaySeconds(5);
+			run = true;
+            String input = " "; 
 
-			@Override
-			public void run() {
-				while (true) {
-					try {
-						String input = br.readLine();
-						System.out.println("input : " + input);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
+            // we give 2 sec to the next loop to flush the input 
+			new Thread(() -> {
+				delaySeconds(2);
+				run = false;
+			}).start();
 
+			while (run) {
+
+				input = br.readLine();
+				System.out.println("ignored: " + input);
 			}
-		}).start();
+			
+			// we read the right stuff here 
+			System.out.println("Enter the right stuff");
+			String s = br.readLine();
+			System.out.println("The right stuff is: " + s);
 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-	private static void testInputCR() {
+	private static void solution03() {
 		System.out.println("Enter some ignored stuff ");
 		Scanner in = new Scanner(System.in);
 		delaySeconds(5);
@@ -77,7 +87,7 @@ public class TestMisc01 {
 
 	}
 
-	private static void delaySeconds(int delayInSeconds) {
+	public static void delaySeconds(int delayInSeconds) {
 
 		try {
 			TimeUnit.SECONDS.sleep(delayInSeconds);
