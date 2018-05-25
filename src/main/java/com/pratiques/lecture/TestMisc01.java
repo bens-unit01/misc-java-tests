@@ -13,9 +13,9 @@ public class TestMisc01 {
 
 	public static void run() {
 
-		// testInputInt();
-		// testInputCR();
-		testBufferedReader();
+		 //solution01();
+		 //solution02();
+		 solution03();
 	}
 
 	private static void solution01() {
@@ -48,7 +48,6 @@ public class TestMisc01 {
 			}).start();
 
 			while (run) {
-
 				input = br.readLine();
 				System.out.println("ignored: " + input);
 			}
@@ -68,22 +67,23 @@ public class TestMisc01 {
 		Scanner in = new Scanner(System.in);
 		delaySeconds(5);
 		run = true;
-		new Thread(() -> {
+
+            // we give 2 sec to the next loop to flush the input 
+			new Thread(() -> {
+				delaySeconds(2);
+				run = false;
+			}).start();
+
+
 			while (in.hasNextLine() && run) {
 				String s = in.nextLine();
-				System.out.println("--" + s);
+				System.out.println("ignored: " + s);
 			}
 
-			System.out.println("####--");
-		}).start();
-		delaySeconds(3);
-		run = false;
-		delaySeconds(2);
-		in.close();
-		System.out.println("press enter ...");
-		Scanner in2 = new Scanner(System.in);
-		String s = in2.nextLine();
-		System.out.println("Configuration de l\'APN, veuillez patienter ...");
+		in.nextLine(); 
+		System.out.println("Enter the right stuff here ...");
+		String s = in.nextLine();
+		System.out.println("Right stuff: " + s); 
 
 	}
 
