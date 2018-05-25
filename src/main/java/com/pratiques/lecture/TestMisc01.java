@@ -14,8 +14,8 @@ public class TestMisc01 {
 	public static void run() {
 
 		 //solution01();
-		 //solution02();
-		 solution03();
+		 solution02();
+		 //solution03();
 	}
 
 	private static void solution01() {
@@ -47,15 +47,13 @@ public class TestMisc01 {
 				run = false;
 			}).start();
 
+			System.out.println("Enter the right stuff");
 			while (run) {
-				input = br.readLine();
 				System.out.println("ignored: " + input);
+				input = br.readLine();
 			}
 			
-			// we read the right stuff here 
-			System.out.println("Enter the right stuff");
-			String s = br.readLine();
-			System.out.println("The right stuff is: " + s);
+			System.out.println("The right stuff is: " + input);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -75,13 +73,14 @@ public class TestMisc01 {
 			}).start();
 
 
+		System.out.println("Enter the right stuff here ...");
+
+		//loop to flush the old inputs  
 			while (in.hasNextLine() && run) {
 				String s = in.nextLine();
 				System.out.println("ignored: " + s);
 			}
 
-		in.nextLine(); 
-		System.out.println("Enter the right stuff here ...");
 		String s = in.nextLine();
 		System.out.println("Right stuff: " + s); 
 
