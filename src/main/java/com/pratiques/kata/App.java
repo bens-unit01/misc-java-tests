@@ -10,6 +10,7 @@ import com.pratiques.factory.TestFactory;
 import com.pratiques.ftdi.TestFtdi;
 import com.pratiques.regex.TestRegex01;
 import com.pratiques.threads.TestThreads01;
+import com.pratiques.threads.TestThreads02;
 import com.pratiques.files.TestFiles01;
 
 /**
@@ -26,12 +27,14 @@ public class App
 //        TestBufferedReader.run(); 
 //        TestScanner.run(); 
 //        TestConsole.run(); //ne marche pas sous-windows,  System.console retourne null  
-           TestMisc01.run(); 
-//          TestFactory.run(); 
+//        TestMisc01.run(); 
+//        TestFactory.run(); 
 //        TestRegex01.run(); 
 //        TestFtdi.run();  // ne marche pas encore 
 //        TestFiles01.run();  // ne marche pas encore 
 //        TestThreads01.run();
+        TestThreads02.run();
+
         System.exit(0);
     }
 }
