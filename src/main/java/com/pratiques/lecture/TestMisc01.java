@@ -14,8 +14,10 @@ public class TestMisc01 {
 	public static void run() {
 
 		 //solution01();
-		 solution02();
+		 //solution02();
 		 //solution03();
+		 //solution04();
+		 solution05();
 	}
 
 	private static void solution01() {
@@ -85,6 +87,28 @@ public class TestMisc01 {
 		System.out.println("Right stuff: " + s); 
 
 	}
+	
+	private static void solution04() {
+		System.out.println("Enter some ignored stuff ");
+		Scanner in = new Scanner(System.in);
+		delaySeconds(5);
+		run = true;
+
+            // we give 2 sec to the next loop to flush the input 
+
+
+		//loop to flush the old inputs  
+			while (in.hasNextLine() && in.hasNext()) {
+				String s = in.nextLine();
+				System.out.println("ignored: " + s);
+			}
+
+		System.out.println("Enter the right stuff here ...");
+		String s = in.nextLine();
+		System.out.println("Right stuff: \'" + s  + " \'"); 
+
+	}
+	
 
 	public static void delaySeconds(int delayInSeconds) {
 
@@ -94,4 +118,38 @@ public class TestMisc01 {
 			e.printStackTrace();
 		}
 	}
+	
+	 private static String prompt(String prompt) {
+
+	        try {
+	            int a = 0;
+	            if((a = System.in.available()) > 0) {
+	                System.in.read(new byte[a]);
+	            }
+	        } catch (IOException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        }
+	        System.out.println(prompt);
+	        Scanner scanner = new Scanner(System.in);
+	        String username = scanner.nextLine();
+	        return username;
+
+	    }
+
+	
+
+	    private static void solution05() {
+
+	        String ignored = prompt("Ignore this: ");
+	        delaySeconds(8);
+	        System.out.println(ignored);
+	        System.out.println("I ignored all of the above\n\n\n");
+
+	        String good = prompt("Enter the right stuff here ...");
+	        System.out.println(good);
+
+	    }
+	
+	
 }
