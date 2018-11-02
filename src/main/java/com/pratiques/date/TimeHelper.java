@@ -21,4 +21,13 @@ public class TimeHelper {
 			e.printStackTrace();
 		}
 	}
+
+	public static String durationToString(long duration) {
+
+		long minutes = TimeUnit.MILLISECONDS.toMinutes(duration);
+		long seconds = TimeUnit.MILLISECONDS.toSeconds((duration - (minutes * 60 * 1000)));
+		String sec = (seconds <= 9) ? "0" + seconds : seconds + "";
+
+		return minutes + ":" + sec;
+	}
 }
