@@ -4,6 +4,8 @@ import com.pratiques.lecture.TestBufferedReader;
 import com.pratiques.lecture.TestScanner;
 import com.pratiques.lecture.TestConsole;
 import com.pratiques.lecture.TestMisc01;
+import com.pratiques.math.TestCarte;
+import com.pratiques.math.TestLimitVitesse;
 import com.pratiques.math.TestTemperature;
 import com.pratiques.observer1.Observer1Test;
 import com.pratiques.observer2.Observer2Test;
@@ -35,9 +37,11 @@ public class App
 //        TestFtdi.run();  // ne marche pas encore 
 //        TestFiles01.run();  // ne marche pas encore 
 //        TestThreads01.run();
-//           TestDate.run(); 
+//        TestDate.run(); 
 //        TestThreads02.run();
-        TestTemperature.run();
+//        TestTemperature.run();
+//        TestLimitVitesse.run();
+        TestCarte.run();
 
         System.exit(0);
     }
