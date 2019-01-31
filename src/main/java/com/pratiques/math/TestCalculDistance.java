@@ -22,6 +22,7 @@ public class TestCalculDistance {
 	}
 	
 	private static double getDistance(double lat1, double lon1, double lat2, double lon2) {
+		// source de la formule https://www.movable-type.co.uk/scripts/latlong.html
 		double v1 = toRadian(lat1); 
 		double v2 = toRadian(lat2); 
 		double delta1 = toRadian(lat2 - lat1); 
