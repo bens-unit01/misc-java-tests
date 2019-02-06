@@ -25,16 +25,68 @@ static int data[] =  { 0,
 	System.out.println("________________________________________________________________________________");
 	System.out.println("|\tindex\t|    raw-speed\t|smoothed-speed |speed min/max | trigger event|");
 	System.out.println("________________________________________________________________________________");
+
+	
 	TestLimitVitesse test = new TestLimitVitesse(); 	
+	test.i32MaxSpeed = 80; 
+	test.i32MinSpeed = 60; 
 		for(int i = 0; i < data.length; i++) {
-			test.refresh(data[i], i); 
+			test.refresh2(data[i], i); 
 		}
 		
 		
 	System.out.println("________________________________________________________________________________");
 	System.out.println("test end ...");
+
 	}
+
 	
+    public void refresh2(int u32Speed, int index) {	
+       int calculatedSpeed = 0;     
+
+      if(isSmooting) {
+    	  int old_speed = speedSum; 
+      speedSum = speedSum + u32Speed - (speedSum >> 2); 
+      calculatedSpeed = (speedSum >> 2); 
+      } else {
+    	  
+      calculatedSpeed = u32Speed;  // enl 
+      }
+
+	  if(calculatedSpeed >= i32MaxSpeed ){
+		  if(i32MaxSpeed < 80)
+		  {
+			  i32MinSpeed = i32MaxSpeed - 10;
+			  i32MaxSpeed += 20;
+			  bisNewPing = true;
+		  }
+	  }
+	  else
+	  {
+		  if(calculatedSpeed < i32MinSpeed)
+		  {
+			  i32MaxSpeed -= 20;
+			  i32MinSpeed = i32MaxSpeed - 30;
+			  bisNewPing = true;
+		  }
+	  }
+
+	  i32MinSpeed = (i32MinSpeed < 50)? 50 : i32MinSpeed;
+	  i32MaxSpeed = (i32MaxSpeed < 80)? 80 : i32MaxSpeed;
+
+	  if(bisNewPing)
+	  {
+//          un ping sera généré ici 
+          bisNewPing = false;
+          System.out.println("|\t " + index + "\t|\t " + u32Speed + "\t|\t " + calculatedSpeed + "\t|\t" + i32MinSpeed +" - " + i32MaxSpeed + "\t|\t*\t|");
+
+	  }
+	  else
+	  {
+          System.out.println("|\t " + index + "\t|\t " + u32Speed + "\t|\t " + calculatedSpeed + "\t|\t" + i32MinSpeed +" - " + i32MaxSpeed + "\t|\t \t|");
+	  }
+	  
+    }
     public void refresh(int u32Speed, int index) {	
 
       int calculatedSpeed = 0;     
